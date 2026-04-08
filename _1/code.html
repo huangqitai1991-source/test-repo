@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>X-HUB | 空间详情与预约</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191c1e",
+                    "on-secondary-container": "#613c84",
+                    "tertiary": "#7b5500",
+                    "background": "#f8f9fb",
+                    "tertiary-fixed": "#ffdead",
+                    "secondary": "#734d97",
+                    "on-surface-variant": "#4d4354",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-secondary-fixed": "#2c014f",
+                    "secondary-fixed": "#f0dbff",
+                    "inverse-primary": "#ddb7ff",
+                    "on-tertiary-fixed": "#281900",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e7e8ea",
+                    "on-error": "#ffffff",
+                    "surface": "#f8f9fb",
+                    "surface-tint": "#842bd2",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#fabc4e",
+                    "surface-bright": "#f8f9fb",
+                    "primary-fixed-dim": "#ddb7ff",
+                    "on-surface": "#191c1e",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#8127cf",
+                    "on-secondary-fixed-variant": "#5a357e",
+                    "secondary-container": "#d7adff",
+                    "tertiary-container": "#9b6b00",
+                    "surface-dim": "#d9dadc",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-container-low": "#f3f4f6",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#604100",
+                    "on-primary-fixed-variant": "#6900b3",
+                    "primary-container": "#9c48ea",
+                    "outline-variant": "#cfc2d6",
+                    "on-tertiary-container": "#fffbff",
+                    "outline": "#7e7385",
+                    "on-primary-fixed": "#2c0051",
+                    "primary-fixed": "#f0dbff",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeef0",
+                    "on-primary-container": "#fffbff",
+                    "secondary-fixed-dim": "#ddb7ff",
+                    "surface-variant": "#e1e2e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md flex justify-between items-center px-6 h-16 w-full shadow-[0_12px_40px_rgba(129,39,207,0.06)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-purple-600 dark:text-purple-400 cursor-pointer hover:opacity-80 transition-opacity">arrow_back</span>
+<h1 class="text-2xl font-bold text-purple-600 dark:text-purple-400 tracking-tighter font-['Space_Grotesk']">X-HUB</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400">location_on</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/15">
+<img class="w-full h-full object-cover" data-alt="minimalist user profile avatar with clean professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChfqtqR2kmoiPRlNsGkoEMo_jf1yulcvtXXa0N8Z2t0XKAfMK5Fln7lWRZptE89f1pvX9i_IaBWlNOZRkAOFdLdq3OixOuUUFuTmEbWsSUTAKZZijpu82sfeVCUy6bbDtz5WbVpwxrzmq5TsRUzlfbFFu0cUBBCB9SsbfZcLecLx6X55StQ-66znoYkWRQRkT0PwRdfmI2iR5PgDlOCBElSM3NvjdjCns_aei8QNdfGBz0ApiJZ4Heom51ycms7I5Isk5FOoG9zk8"/>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-32 max-w-5xl mx-auto px-4 md:px-8 lg:px-12">
+<!-- Section 1: Space Images Swiper (Visual Carousel) -->
+<section class="mt-6 mb-12">
+<div class="relative overflow-hidden rounded-3xl group">
+<div class="flex gap-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory">
+<div class="min-w-full md:min-w-[70%] aspect-[16/10] snap-center rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="ultra-modern high-tech laboratory with neon purple accents sleek white furniture and large panoramic windows at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZfvZBa4N2b9mNRaOZtcNJatUtCc0pLsuUI6RAbdl5oyoFT7TD6qt8gfaIvVPxVw2chf6agzPNjHrBWoda_2qogpja7RA50HinS0T7O750WiK9M4e-DBy8xz50EMdQIebcr3We01qRWcdoI6UNzqCBB0Aq5Frpt75BoRr7sFqeli1bu0OWjJpO1QMybntbT6eXMOVQGLP3RBscSlDtI4seluRQ5Xml71j3yILaxwyck9iJw0pgZfCJAjLHRh5XJEPgH5NKSrwjim0"/>
+</div>
+<div class="min-w-full md:min-w-[70%] aspect-[16/10] snap-center rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="close up of premium ergonomic minimalist workstation with dual 8k monitors and soft ambient purple lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDynEK7OwpLlogBeAalYA2tva7SQcmzdx3-WZZTdbRwtAX0E13t6stJDZuFyVMsassTszbguTOD0LEfUlMaD6z8aesEGyPQfzIgr8BX1lJsdfM7lQqzlBwg8Re7SqaDlew-BPa6eQsp_ujEg08JFYGvtClT7EIVs8LnOe-ReSY_X0dXRZHWioQHf5yv3NmZW_RQuTD-UjQrRzatam1ZhFsnfNQEiXpsu2sVVnALwl_sYQyes8z4l9rfkZgyNGn_9gEiHkIit5m38j4"/>
+</div>
+<div class="min-w-full md:min-w-[70%] aspect-[16/10] snap-center rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="chic contemporary lounge area with white marble flooring and abstract futuristic light installations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4OAGMNmaz0uL1tnkOJPCinkdZSHLFGP_6V3eT-JtFib39IHQ0n6knTKVFvXTb-62n0Bmq-amrzJde7USegGgywq-o2csdVZN5PvDElf2DcQ-jDikZlUDLm4hw8P5GfZhr1zpc0iPN8W6zAPb7olApZHNudMe8qdMPlC5Npg5erg4qS8AveDF9mAmFvFvMlaiEjfFaumNTvU1EQv-oXTDxPr1MviT1uzplVERyRpef-ApKGQ-yUZ_abz7OPKMad-XlKT-fn_wdi0E"/>
+</div>
+</div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-8 h-1.5 rounded-full bg-primary shadow-lg"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/50"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/50"></div>
+</div>
+</div>
+</section>
+<!-- Section 2 & 3: Info & Details -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-7 space-y-10">
+<div>
+<span class="font-label uppercase tracking-widest text-[10px] text-primary font-bold mb-2 block">Premium Workspace</span>
+<h2 class="text-5xl font-headline font-bold tracking-tight text-on-surface mb-4">量子实验室 A</h2>
+<div class="flex items-center gap-3 text-secondary font-medium">
+<span class="material-symbols-outlined text-lg">stars</span>
+<span class="font-headline text-xl">1,200 积分 / 半天</span>
+</div>
+</div>
+<!-- Bento Grid Info Cards -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-3">groups</span>
+<p class="text-slate-400 text-xs font-label uppercase tracking-wider mb-1">Capacity</p>
+<p class="text-xl font-headline font-bold">12人</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-3">apartment</span>
+<p class="text-slate-400 text-xs font-label uppercase tracking-wider mb-1">Location</p>
+<p class="text-xl font-headline font-bold">42层</p>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline text-xl font-bold">空间描述</h3>
+<p class="text-on-surface-variant leading-relaxed font-light">
+                        位于顶层的量子实验室 A 专为高密度协作设计。配备全景视野及最先进的 8K 实时协作系统，是举办战略会议与技术研讨的理想之选。环境采用声学降噪设计，确保极致专注。
+                    </p>
+</div>
+<!-- Section 6: Add-on services -->
+<div class="space-y-4">
+<h3 class="font-headline text-xl font-bold">增值服务</h3>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-3 p-4 rounded-xl bg-white border border-outline-variant/15 hover:border-primary/40 transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">coffee</span>
+<div>
+<p class="text-sm font-bold">精品咖啡</p>
+<p class="text-[10px] text-slate-400">+50 积分</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20 transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-primary">videocam</span>
+<div>
+<p class="text-sm font-bold">8K 投影系统</p>
+<p class="text-[10px] text-primary">已包含</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking Section -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-8 rounded-3xl shadow-[0_32px_64px_rgba(129,39,207,0.08)] border border-outline-variant/10 space-y-8 sticky top-24">
+<!-- Section 4: Date/Time selector -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h4 class="font-headline font-bold">选择日期</h4>
+<span class="text-xs text-primary font-medium">2024年 10月</span>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center">
+<span class="text-[10px] text-slate-400 font-label">一</span>
+<span class="text-[10px] text-slate-400 font-label">二</span>
+<span class="text-[10px] text-slate-400 font-label">三</span>
+<span class="text-[10px] text-slate-400 font-label">四</span>
+<span class="text-[10px] text-slate-400 font-label">五</span>
+<span class="text-[10px] text-slate-400 font-label">六</span>
+<span class="text-[10px] text-slate-400 font-label">日</span>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm text-slate-300">12</div>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm text-slate-300">13</div>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm font-bold bg-primary text-white shadow-md shadow-primary/20">14</div>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm hover:bg-surface-container-low cursor-pointer">15</div>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm hover:bg-surface-container-low cursor-pointer">16</div>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm hover:bg-surface-container-low cursor-pointer">17</div>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm hover:bg-surface-container-low cursor-pointer">18</div>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline font-bold">时段预定</h4>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center gap-1 p-4 rounded-xl border-2 border-primary bg-primary/5 text-primary">
+<span class="text-xs font-bold">上午场</span>
+<span class="text-[10px] opacity-70">08:00 - 12:00</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all text-on-surface-variant">
+<span class="text-xs font-bold">下午场</span>
+<span class="text-[10px] opacity-70">13:30 - 17:30</span>
+</button>
+</div>
+</div>
+<!-- Section 5: Attendees stepper -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h4 class="font-headline font-bold">参会人数</h4>
+<div class="flex items-center gap-4 bg-surface-container-low px-3 py-2 rounded-full">
+<button class="w-6 h-6 flex items-center justify-center rounded-full bg-white border border-outline-variant/20 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-headline font-bold text-sm w-4 text-center">8</span>
+<button class="w-6 h-6 flex items-center justify-center rounded-full bg-primary text-white shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Transactional Shell) -->
+<div class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-outline-variant/10 z-[60] pb-safe px-6 md:px-12">
+<div class="max-w-5xl mx-auto h-24 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-slate-400 text-xs font-label uppercase tracking-widest">Estimated Total</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold text-primary">1,800</span>
+<span class="text-sm font-medium text-primary/80">积分</span>
+</div>
+</div>
+<button class="px-10 py-4 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold font-headline tracking-wide shadow-[0_12px_24px_rgba(129,39,207,0.25)] hover:scale-105 active:scale-95 transition-all">
+                立即预定
+            </button>
+</div>
+</div>
+<!-- Navigation Shell (Suppressed based on Transactional Rule - but providing template for consistency if requested as generic nav) -->
+<nav class="hidden md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-t-2xl z-50 shadow-[0_-12px_40px_rgba(129,39,207,0.06)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-purple-500 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide">首页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-purple-600 dark:text-purple-400 font-bold">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide">订单</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-purple-500 transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide">我的</span>
+</div>
+</nav>
+</body></html>

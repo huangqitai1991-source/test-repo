@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191c1e",
+                    "on-secondary-container": "#613c84",
+                    "tertiary": "#7b5500",
+                    "background": "#f8f9fb",
+                    "tertiary-fixed": "#ffdead",
+                    "secondary": "#734d97",
+                    "on-surface-variant": "#4d4354",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-secondary-fixed": "#2c014f",
+                    "secondary-fixed": "#f0dbff",
+                    "inverse-primary": "#ddb7ff",
+                    "on-tertiary-fixed": "#281900",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e7e8ea",
+                    "on-error": "#ffffff",
+                    "surface": "#f8f9fb",
+                    "surface-tint": "#842bd2",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#fabc4e",
+                    "surface-bright": "#f8f9fb",
+                    "primary-fixed-dim": "#ddb7ff",
+                    "on-surface": "#191c1e",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#8127cf",
+                    "on-secondary-fixed-variant": "#5a357e",
+                    "secondary-container": "#d7adff",
+                    "tertiary-container": "#9b6b00",
+                    "surface-dim": "#d9dadc",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-container-low": "#f3f4f6",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#604100",
+                    "on-primary-fixed-variant": "#6900b3",
+                    "primary-container": "#9c48ea",
+                    "outline-variant": "#cfc2d6",
+                    "on-tertiary-container": "#fffbff",
+                    "outline": "#7e7385",
+                    "on-primary-fixed": "#2c0051",
+                    "primary-fixed": "#f0dbff",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeef0",
+                    "on-primary-container": "#fffbff",
+                    "secondary-fixed-dim": "#ddb7ff",
+                    "surface-variant": "#e1e2e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(129, 39, 207, 0.2);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background antialiased min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<nav class="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md fixed top-0 w-full z-50 shadow-[0_12px_40px_rgba(129,39,207,0.06)] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-purple-600">arrow_back_ios</span>
+<span class="text-2xl font-bold text-purple-600 dark:text-purple-400 tracking-tighter font-headline">X-HUB</span>
+</div>
+<div class="flex items-center space-x-6">
+<div class="hidden md:flex items-center space-x-4">
+<span class="text-slate-400 font-['Inter'] uppercase tracking-widest text-xs">首页</span>
+<span class="text-purple-700 font-bold font-['Inter'] uppercase tracking-widest text-xs">订单</span>
+<span class="text-slate-400 font-['Inter'] uppercase tracking-widest text-xs">我的</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional male designer with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB846lsb1XyuCWdpcDECIgdxO3tIm0XN3ztvJ7PRrYEWDZrZl53xgHqPRm6NWajri1lwqlHfym5EquzhVgLiPRgjy5BbcgaiXa_n8i-nSEYTTTjEtFZ0tVq4dm9MbFd6f2LvfL3XN5y7BA-p_DSrBItLhb3FRzgp2-ZazdSkBekOy6OaNKYy3hzRnvrcYlNJEA51v-Mtyi7Vi5AdHNnIUndm5tXosPkQopo_JHSTUbx4510Yj47CBQNaPmqKiwfCbvlYf_mnp6yV5E"/>
+</div>
+</div>
+</nav>
+<main class="pt-24 px-6 max-w-3xl mx-auto space-y-8">
+<!-- Status Banner -->
+<section class="relative overflow-hidden rounded-3xl p-8 bg-surface-container-lowest shadow-[0_12px_40px_rgba(129,39,207,0.04)]">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex items-center gap-2 px-4 py-1 rounded-full bg-primary-container/10">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-bold text-primary font-label tracking-widest">待使用</span>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-label uppercase tracking-[0.2em] text-outline">Order Reference</p>
+<h1 class="text-4xl font-headline font-bold tracking-tight text-on-surface">虚空室 04</h1>
+<p class="text-secondary font-medium mt-2">Cyber-Light Workspace Suite</p>
+</div>
+</section>
+<!-- Access Key Display (Glassmorphism & High Contrast) -->
+<section class="glass-card rounded-[2.5rem] p-10 flex flex-col items-center justify-center border border-white/40 shadow-[0_40px_80px_rgba(129,39,207,0.08)]">
+<span class="text-[10px] font-label uppercase tracking-[0.4em] text-outline mb-8">Visitor Access Code • 访客码</span>
+<div class="flex gap-4 md:gap-8 items-center justify-center">
+<div class="w-16 h-20 md:w-20 md:h-24 bg-surface-container flex items-center justify-center rounded-2xl text-4xl md:text-5xl font-headline font-bold text-primary shadow-sm">8</div>
+<div class="w-16 h-20 md:w-20 md:h-24 bg-surface-container flex items-center justify-center rounded-2xl text-4xl md:text-5xl font-headline font-bold text-primary shadow-sm">4</div>
+<div class="w-16 h-20 md:w-20 md:h-24 bg-surface-container flex items-center justify-center rounded-2xl text-4xl md:text-5xl font-headline font-bold text-primary shadow-sm">2</div>
+<div class="w-16 h-20 md:w-20 md:h-24 bg-surface-container flex items-center justify-center rounded-2xl text-4xl md:text-5xl font-headline font-bold text-primary shadow-sm">1</div>
+</div>
+<button class="mt-8 flex items-center gap-2 px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span class="text-xs font-bold font-label tracking-wider">REFRESH KEY</span>
+</button>
+</section>
+<!-- Bento Grid Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Schedule Card -->
+<div class="bg-surface-container-low rounded-3xl p-6 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<div>
+<p class="text-[10px] font-label uppercase tracking-widest text-outline">预约时间</p>
+<p class="font-bold text-on-surface">2023年12月24日</p>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant/15 w-full"></div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<div>
+<p class="text-[10px] font-label uppercase tracking-widest text-outline">时间段</p>
+<p class="font-bold text-on-surface">14:00 - 18:00 (4h)</p>
+</div>
+</div>
+</div>
+<!-- Butler Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 flex flex-col justify-between border border-outline-variant/15 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden ring-4 ring-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="friendly male professional butler in modern uniform smiling in front of a minimalist interior background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbWABhGPJimXN5uXwfO_1wuFcps4fjJ4-wF1jl9e56_PsEzRSyW9z6pPI20Hm0GRHi5JRMPghYsJVgzQOLI9MeoKghb_IMIUF5Sv-5tQycCva6dhlbMKPNRNxBOADVTmagrPuMZ4jC6ZYTAnm1oERbfE1r5mKdgopP7eGasChbMBGs8r3_PuJs5YLnbyjBAlu7e6R874AoH10FfFf_iW1z-DwI0wT-q254NJqvvo01GfiP0SQJYN3UxEpTKTvwct6xE6Cz-yDxIlg"/>
+</div>
+<div>
+<p class="text-[10px] font-label uppercase tracking-widest text-outline">专属管家</p>
+<p class="font-bold text-on-surface text-lg">Julian S.</p>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="p-2 rounded-full bg-surface-container-low text-primary hover:bg-primary-container hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-base">call</span>
+</div>
+<div class="p-2 rounded-full bg-surface-container-low text-primary hover:bg-primary-container hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-base">qr_code_2</span>
+</div>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed opacity-70">
+                    Julian 将在您抵达前完成环境初始化，如有特殊需求请点击通话。
+                </p>
+</div>
+</div>
+<!-- Technical Specs & Cost -->
+<section class="bg-surface-container-low rounded-3xl p-8 space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-xl tracking-tight">技术规格 &amp; 费用</h3>
+<span class="text-2xl font-headline font-bold text-primary">¥ 1,280.00</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-sm py-2">
+<span class="text-outline font-label uppercase tracking-wider">Network</span>
+<span class="text-on-surface font-medium">10Gbps Dedicated Symmetrical</span>
+</div>
+<div class="flex justify-between text-sm py-2">
+<span class="text-outline font-label uppercase tracking-wider">Privacy Level</span>
+<span class="text-on-surface font-medium">Class S (Soundproof / Shielded)</span>
+</div>
+<div class="flex justify-between text-sm py-2">
+<span class="text-outline font-label uppercase tracking-wider">Equipment</span>
+<span class="text-on-surface font-medium">Pro-Display Cluster, Ergonomic S3</span>
+</div>
+<div class="h-[1px] bg-outline-variant/15 w-full"></div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-sm text-outline font-label uppercase tracking-wider">Total Amount</span>
+<span class="text-xs text-on-surface-variant font-medium">包含 10% 科技服务费</span>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex flex-col gap-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold py-5 rounded-2xl shadow-[0_12px_30px_rgba(129,39,207,0.2)] active:scale-95 transition-all">
+                修改预约
+            </button>
+<button class="w-full bg-surface-container-high text-on-surface-variant font-headline font-bold py-5 rounded-2xl hover:opacity-80 transition-all">
+                申请开票
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md z-50 rounded-t-2xl shadow-[0_-12px_40px_rgba(129,39,207,0.06)] md:hidden">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-purple-500 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide">首页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-purple-600 dark:text-purple-400 font-bold active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide">订单</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-purple-500 transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide">我的</span>
+</div>
+</nav>
+</body></html>
