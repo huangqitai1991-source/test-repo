@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 预约空间</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex items-center px-4 gap-4">
+    <button onclick="history.back()" class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <h1 class="flex-1 font-headline text-xl font-bold text-on-surface">预约空间</h1>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- 空间信息卡片 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-4 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <div class="flex gap-4">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=120&h=120&fit=crop" alt="创客空间" class="w-24 h-24 rounded-2xl object-cover"/>
+            <div class="flex-1">
+                <h3 class="font-headline text-lg font-bold text-on-surface">创客空间 A区</h3>
+                <p class="text-xs text-outline mt-1">浦东新区·张江高科园区</p>
+                <div class="flex items-center gap-2 mt-2">
+                    <span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="text-sm font-bold text-on-surface">4.9</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <span class="font-headline text-xl font-bold text-primary">500</span>
+                <p class="text-[10px] text-outline">积分/半天</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 预约日期 -->
+    <div class="mb-6">
+        <h3 class="font-headline text-lg font-bold text-on-surface mb-4">选择日期</h3>
+        <div class="flex gap-3 overflow-x-auto pb-2">
+            <button class="flex-shrink-0 w-16 h-20 bg-primary rounded-2xl flex flex-col items-center justify-center text-white">
+                <span class="text-[10px] font-medium opacity-80">今天</span>
+                <span class="text-xl font-bold">8</span>
+                <span class="text-[10px] opacity-80">周二</span>
+            </button>
+            <button class="flex-shrink-0 w-16 h-20 bg-surface-container-lowest rounded-2xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+                <span class="text-[10px] font-medium text-outline">明天</span>
+                <span class="text-xl font-bold text-on-surface">9</span>
+                <span class="text-[10px] text-outline">周三</span>
+            </button>
+            <button class="flex-shrink-0 w-16 h-20 bg-surface-container-lowest rounded-2xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+                <span class="text-[10px] font-medium text-outline">周四</span>
+                <span class="text-xl font-bold text-on-surface">10</span>
+                <span class="text-[10px] text-outline">周四</span>
+            </button>
+            <button class="flex-shrink-0 w-16 h-20 bg-surface-container-lowest rounded-2xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+                <span class="text-[10px] font-medium text-outline">周五</span>
+                <span class="text-xl font-bold text-on-surface">11</span>
+                <span class="text-[10px] text-outline">周五</span>
+            </button>
+            <button class="flex-shrink-0 w-16 h-20 bg-surface-container-lowest rounded-2xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+                <span class="text-[10px] font-medium text-outline">周六</span>
+                <span class="text-xl font-bold text-on-surface">12</span>
+                <span class="text-[10px] text-outline">周六</span>
+            </button>
+            <button class="flex-shrink-0 w-16 h-20 bg-surface-container-lowest rounded-2xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+                <span class="text-[10px] font-medium text-outline">周日</span>
+                <span class="text-xl font-bold text-on-surface">13</span>
+                <span class="text-[10px] text-outline">周日</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 预约时间段 -->
+    <div class="mb-6">
+        <h3 class="font-headline text-lg font-bold text-on-surface mb-4">选择时段</h3>
+        <div class="grid grid-cols-3 gap-3">
+            <button class="py-3 px-4 bg-surface-container-lowest rounded-xl text-sm font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors border-2 border-primary">
+                上午<br/><span class="text-xs text-outline">08:00-12:00</span>
+            </button>
+            <button class="py-3 px-4 bg-surface-container-lowest rounded-xl text-sm font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors border-2 border-transparent">
+                下午<br/><span class="text-xs text-outline">13:00-17:00</span>
+            </button>
+            <button class="py-3 px-4 bg-surface-container-lowest rounded-xl text-sm font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors border-2 border-transparent">
+                晚上<br/><span class="text-xs text-outline">18:00-22:00</span>
+            </button>
+            <button class="py-3 px-4 bg-surface-container-lowest rounded-xl text-sm font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors border-2 border-transparent">
+                半天档<br/><span class="text-xs text-outline">08:00-12:00</span>
+            </button>
+            <button class="py-3 px-4 bg-surface-container-lowest rounded-xl text-sm font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors border-2 border-transparent">
+                半天档<br/><span class="text-xs text-outline">13:00-17:00</span>
+            </button>
+            <button class="py-3 px-4 bg-surface-container-low rounded-xl text-sm font-medium text-outline cursor-not-allowed border-2 border-transparent">
+                全天<br/><span class="text-xs">已满</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 使用人数 -->
+    <div class="mb-6">
+        <h3 class="font-headline text-lg font-bold text-on-surface mb-4">使用人数</h3>
+        <div class="flex items-center gap-6">
+            <button class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-primary/10 transition-colors" onclick="updateCount(-1)">
+                <span class="material-symbols-outlined text-on-surface">remove</span>
+            </button>
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-2xl">groups</span>
+                <span id="peopleCount" class="font-headline text-3xl font-bold text-on-surface">8</span>
+                <span class="text-sm text-outline">人</span>
+            </div>
+            <button class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-primary/10 transition-colors" onclick="updateCount(1)">
+                <span class="material-symbols-outlined text-on-surface">add</span>
+            </button>
+            <span class="ml-4 text-xs text-outline">可容纳 8-20 人</span>
+        </div>
+    </div>
+
+    <!-- 备注信息 -->
+    <div class="mb-6">
+        <h3 class="font-headline text-lg font-bold text-on-surface mb-4">备注信息</h3>
+        <textarea placeholder="如有特殊需求请在此说明..." rows="3" class="w-full p-4 bg-surface-container-lowest rounded-2xl border border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 text-sm text-on-surface placeholder:text-outline resize-none transition-all"></textarea>
+    </div>
+
+    <!-- 费用明细 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h3 class="font-headline text-lg font-bold text-on-surface mb-4">费用明细</h3>
+        <div class="space-y-3">
+            <div class="flex justify-between text-sm">
+                <span class="text-outline">创客空间 A区 × 上午时段</span>
+                <span class="text-on-surface">¥500</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-outline">使用人数 × 8人</span>
+                <span class="text-on-surface">免费</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-outline">平台服务费</span>
+                <span class="text-on-surface">¥0</span>
+            </div>
+            <div class="border-t border-outline-variant/20 pt-3 flex justify-between">
+                <span class="font-headline font-bold text-on-surface">合计</span>
+                <div class="text-right">
+                    <span class="font-headline text-2xl font-bold text-primary">500</span>
+                    <span class="text-sm text-outline ml-1">积分</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户积分 -->
+    <div class="bg-primary/5 rounded-2xl p-4 flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+            <div>
+                <p class="text-sm font-medium text-on-surface">可用积分</p>
+                <p class="text-xs text-outline">当前账户余额</p>
+            </div>
+        </div>
+        <div class="text-right">
+            <span class="font-headline text-xl font-bold text-primary">2,580</span>
+            <span class="text-sm text-outline ml-1">积分</span>
+        </div>
+    </div>
+
+    <!-- 注意事项 -->
+    <div class="bg-surface-container-low rounded-2xl p-4 mb-6">
+        <h4 class="font-headline font-bold text-on-surface text-sm mb-3">预约须知</h4>
+        <ul class="space-y-2 text-xs text-outline">
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary" style="font-size: 16px;">check_circle</span>
+                预约成功后可提前2小时取消
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary" style="font-size: 16px;">check_circle</span>
+                取消预约将扣除10%积分作为手续费
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary" style="font-size: 16px;">check_circle</span>
+                请准时到达，空间将为您保留30分钟
+            </li>
+        </ul>
+    </div>
+</main>
+
+<!-- 底部确认栏 -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.08)] p-4 z-50">
+    <div class="flex items-center gap-4">
+        <div class="flex-1">
+            <p class="text-xs text-outline">应付</p>
+            <div class="flex items-baseline gap-1">
+                <span class="font-headline text-2xl font-bold text-primary">500</span>
+                <span class="text-sm text-outline">积分</span>
+            </div>
+        </div>
+        <button onclick="window.location.href='booking-confirm.html'" class="primary-gradient text-white px-8 py-4 rounded-2xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all">
+            确认预约
+        </button>
+    </div>
+</div>
+
+<script>
+function updateCount(delta) {
+    const countEl = document.getElementById('peopleCount');
+    let count = parseInt(countEl.textContent);
+    count = Math.max(1, Math.min(20, count + delta));
+    countEl.textContent = count;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 空间列表</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex items-center px-4 gap-4">
+    <button onclick="history.back()" class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <div class="flex-1 relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" style="font-size: 20px;">search</span>
+        <input type="text" placeholder="搜索空间名称" class="w-full pl-12 pr-4 py-2.5 bg-surface-container-low rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"/>
+    </div>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- 分类Tab -->
+    <div class="flex gap-3 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+        <button class="px-5 py-2.5 rounded-full primary-gradient text-white text-sm font-semibold whitespace-nowrap shadow-md shadow-primary/20">全部</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">会议室</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">实验室</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">工位</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">活动场地</button>
+    </div>
+
+    <!-- 筛选标签 -->
+    <div class="flex items-center gap-2 mb-6 overflow-x-auto">
+        <span class="text-xs text-outline font-medium whitespace-nowrap">筛选:</span>
+        <button class="px-3 py-1.5 rounded-lg bg-primary-container/20 text-primary text-xs font-medium">有空闲</button>
+        <button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium">可停车</button>
+        <button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium">24小时</button>
+        <button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium">近地铁</button>
+    </div>
+
+    <!-- 排序 -->
+    <div class="flex items-center justify-between mb-6">
+        <span class="text-sm text-outline">共 48 个空间</span>
+        <button class="flex items-center gap-1 text-sm font-medium text-primary">
+            <span>智能排序</span>
+            <span class="material-symbols-outlined" style="font-size: 18px;">expand_more</span>
+        </button>
+    </div>
+
+    <!-- 空间列表 -->
+    <div class="space-y-4">
+        <!-- 卡片1 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)] cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-all" onclick="window.location.href='space-detail.html'">
+            <div class="relative h-48">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=300&fit=crop" alt="创客空间" class="w-full h-full object-cover"/>
+                <div class="absolute top-4 left-4 glass-effect bg-white/40 px-3 py-1 rounded-full flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_6px_#22c55e]"></div>
+                    <span class="text-xs font-medium text-white">空闲中</span>
+                </div>
+                <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">热门</div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-headline text-lg font-bold text-on-surface">创客空间 A区</h3>
+                        <p class="text-xs text-outline mt-1">浦东新区·张江高科</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-sm font-bold text-on-surface">4.9</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">8-20人</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">120㎡</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">白板</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">投影仪</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-primary">500</span>
+                        <span class="text-[10px] text-outline ml-1">积分/半天</span>
+                    </div>
+                    <button class="primary-gradient text-white px-5 py-2 rounded-xl text-sm font-semibold shadow-md shadow-primary/20">立即预定</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 卡片2 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)] cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-all" onclick="window.location.href='space-detail.html'">
+            <div class="relative h-48">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=300&fit=crop" alt="量子实验室" class="w-full h-full object-cover"/>
+                <div class="absolute top-4 left-4 glass-effect bg-white/40 px-3 py-1 rounded-full flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_6px_#22c55e]"></div>
+                    <span class="text-xs font-medium text-white">空闲中</span>
+                </div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-headline text-lg font-bold text-on-surface">量子实验室</h3>
+                        <p class="text-xs text-outline mt-1">浦东新区·张江高科</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-sm font-bold text-on-surface">4.8</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">1-8人</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">80㎡</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">超算接口</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-primary">1200</span>
+                        <span class="text-[10px] text-outline ml-1">积分/时</span>
+                    </div>
+                    <button class="primary-gradient text-white px-5 py-2 rounded-xl text-sm font-semibold shadow-md shadow-primary/20">立即预定</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 卡片3 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)] cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-all" onclick="window.location.href='space-detail.html'">
+            <div class="relative h-48">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=300&fit=crop" alt="禅意行政套房" class="w-full h-full object-cover"/>
+                <div class="absolute top-4 left-4 glass-effect bg-white/40 px-3 py-1 rounded-full flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-full bg-yellow-500 shadow-[0_0_6px_#eab308]"></div>
+                    <span class="text-xs font-medium text-white">使用中</span>
+                </div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-headline text-lg font-bold text-on-surface">禅意行政套房</h3>
+                        <p class="text-xs text-outline mt-1">徐汇区·衡山路</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-sm font-bold text-on-surface">5.0</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">1-4人</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">60㎡</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">落地窗</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-primary">850</span>
+                        <span class="text-[10px] text-outline ml-1">积分/半天</span>
+                    </div>
+                    <button class="bg-surface-container-low text-on-surface px-5 py-2 rounded-xl text-sm font-semibold cursor-not-allowed" disabled>已被预约</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.06)] rounded-t-2xl z-50">
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="home.html">
+        <span class="material-symbols-outlined mb-1">home</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">首页</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold" href="space-list.html">
+        <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">search</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">搜索</span>
+    </a>
+    <button class="w-14 h-14 rounded-full primary-gradient text-white flex items-center justify-center shadow-2xl shadow-primary/40 -mt-6 active:scale-95 transition-transform">
+        <span class="material-symbols-outlined" style="font-size: 32px;">add</span>
+    </button>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="#">
+        <span class="material-symbols-outlined mb-1">event</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">活动</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="profile.html">
+        <span class="material-symbols-outlined mb-1">person</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">我的</span>
+    </a>
+</nav>
+</body>
+</html>
