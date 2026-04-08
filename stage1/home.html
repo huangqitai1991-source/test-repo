@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 首页</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex justify-between items-center px-6">
+    <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size: 20px;">location_on</span>
+        <span class="font-body uppercase tracking-widest text-[10px] font-semibold text-slate-500">上海中心</span>
+    </div>
+    <h1 class="text-2xl font-bold text-primary tracking-tighter font-headline">X-HUB</h1>
+    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 cursor-pointer">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsK4GVWBNXeylUS-Jupg_QCJYUtcUaYv4A1psSsVHYdN8pP2bz14CSjfc8P7qLXtkPKuELYC1xFukiXSuoBbjwAq9wZLsE7tAKD82x7DFZkCE6TTie2Yty-EzRUFgyUcL5DC-1nIgr2Zc03GmSmzXLpKBHgnDT1wkj-6PLDbSUnnUsK-JkMUfcPK6EMzFnQ5mzCIavxnSe7FnQQzau30Dd6RBQF_5vqJbjbRxSoVmgtXh3z-t63j20SEMHfVjLIZT-ezaLjhPqF9k" alt="头像" class="w-full h-full object-cover"/>
+    </div>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- Banner Carousel Section -->
+    <section class="mb-10 relative overflow-hidden rounded-3xl group">
+        <div class="relative h-[240px] w-full overflow-hidden rounded-3xl">
+            <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=400&fit=crop" alt="Banner"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent flex flex-col justify-end p-8">
+                <span class="font-body uppercase tracking-widest text-[10px] text-white/80 mb-2">Limited Access</span>
+                <h2 class="font-headline text-3xl font-bold text-white tracking-tight leading-none mb-4">重塑办公<br/>未来维度</h2>
+                <button class="w-fit primary-gradient text-white px-6 py-2 rounded-xl font-semibold text-sm shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                    了解更多
+                </button>
+            </div>
+        </div>
+        <!-- Indicators -->
+        <div class="absolute bottom-6 right-8 flex gap-2">
+            <div class="w-8 h-1 bg-white rounded-full"></div>
+            <div class="w-2 h-1 bg-white/40 rounded-full"></div>
+            <div class="w-2 h-1 bg-white/40 rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- 即刻预定入口 -->
+    <section class="mb-12">
+        <div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_12px_40px_rgba(129,39,207,0.06)] flex items-center justify-between cursor-pointer hover:shadow-[0_12px_50px_rgba(129,39,207,0.12)] transition-shadow" onclick="window.location.href='space-list.html'">
+            <div>
+                <h3 class="font-headline text-xl font-bold tracking-tight text-on-surface">即刻预定</h3>
+                <p class="text-sm text-outline font-medium">寻找离你最近的灵感空间</p>
+            </div>
+            <button class="primary-gradient text-white px-6 py-3 rounded-2xl font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-2">
+                <span>开始搜索</span>
+                <span class="material-symbols-outlined" style="font-size: 18px;">search</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 分类 & 推荐空间 -->
+    <section class="mb-12">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <span class="font-body uppercase tracking-widest text-[10px] text-primary font-bold">Discover</span>
+                <h3 class="font-headline text-2xl font-bold tracking-tight">推荐空间</h3>
+            </div>
+            <div class="flex gap-4">
+                <span class="text-sm font-semibold text-primary underline underline-offset-4 cursor-pointer">实验室</span>
+                <span class="text-sm font-semibold text-outline cursor-pointer hover:text-primary transition-colors">会议室</span>
+                <span class="text-sm font-semibold text-outline cursor-pointer hover:text-primary transition-colors">冥想室</span>
+            </div>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Large Feature Card -->
+            <div class="md:col-span-8 group relative overflow-hidden rounded-[2rem] bg-surface-container-low transition-all cursor-pointer" onclick="window.location.href='space-detail.html'">
+                <div class="aspect-[16/9] w-full overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=450&fit=crop" alt="量子实验室"/>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h4 class="font-headline text-2xl font-bold text-on-surface">量子实验室</h4>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-sm font-bold text-on-surface">4.9</span>
+                                <span class="text-xs text-outline ml-2">浦东新区·张江</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="block font-headline text-2xl font-bold text-primary">1200</span>
+                            <span class="text-[10px] uppercase font-bold tracking-tighter text-outline">积分 / 时</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-outline-variant max-w-md leading-relaxed">配备最先进的量子模拟器与超算接口，为您的科研项目提供极致算力支持。</p>
+                </div>
+                <div class="absolute top-6 left-6 glass-effect bg-white/30 px-4 py-2 rounded-full flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#8127cf] animate-pulse"></div>
+                    <span class="text-xs font-bold text-white tracking-wide">空闲中</span>
+                </div>
+            </div>
+
+            <!-- Small Card -->
+            <div class="md:col-span-4 group bg-surface-container-lowest rounded-[2rem] shadow-[0_12px_40px_rgba(129,39,207,0.04)] overflow-hidden cursor-pointer hover:shadow-[0_12px_50px_rgba(129,39,207,0.1)] transition-shadow">
+                <div class="aspect-square w-full overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&h=400&fit=crop" alt="禅意行政套房"/>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-headline text-xl font-bold text-on-surface">禅意行政套房</h4>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-sm font-medium text-outline">徐汇区·衡山路</span>
+                        <div class="text-right">
+                            <span class="font-headline text-lg font-bold text-primary">850</span>
+                            <span class="text-[8px] uppercase font-bold text-outline ml-1">积分</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 空间列表快捷入口 -->
+    <section class="mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-surface-container-lowest rounded-3xl p-5 text-center cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-shadow" onclick="window.location.href='space-list.html'">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-2xl primary-gradient flex items-center justify-center">
+                    <span class="text-2xl">🏢</span>
+                </div>
+                <span class="text-sm font-semibold text-on-surface">会议室</span>
+            </div>
+            <div class="bg-surface-container-lowest rounded-3xl p-5 text-center cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-shadow">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-secondary flex items-center justify-center">
+                    <span class="text-2xl">🎯</span>
+                </div>
+                <span class="text-sm font-semibold text-on-surface">工位数</span>
+            </div>
+            <div class="bg-surface-container-lowest rounded-3xl p-5 text-center cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-shadow">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-secondary-container flex items-center justify-center">
+                    <span class="text-2xl">🎪</span>
+                </div>
+                <span class="text-sm font-semibold text-on-surface">活动场地</span>
+            </div>
+            <div class="bg-surface-container-lowest rounded-3xl p-5 text-center cursor-pointer hover:shadow-[0_8px_30px_rgba(129,39,207,0.1)] transition-shadow">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-primary-container flex items-center justify-center">
+                    <span class="text-2xl">☕</span>
+                </div>
+                <span class="text-sm font-semibold text-on-surface">休闲区</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最近活动 -->
+    <section class="mb-12">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <span class="font-body uppercase tracking-widest text-[10px] text-primary font-bold">Upcoming</span>
+                <h3 class="font-headline text-2xl font-bold tracking-tight">最近活动</h3>
+            </div>
+            <span class="text-xs font-bold text-outline hover:text-primary cursor-pointer">查看全部</span>
+        </div>
+        <div class="space-y-4">
+            <!-- 活动项 -->
+            <div class="flex items-center p-5 bg-surface-container-low rounded-3xl hover:bg-surface-container transition-colors group cursor-pointer">
+                <div class="w-14 h-14 rounded-2xl bg-white flex flex-col items-center justify-center shadow-sm">
+                    <span class="text-[10px] font-bold text-primary uppercase">Aug</span>
+                    <span class="text-xl font-bold text-on-surface leading-none">24</span>
+                </div>
+                <div class="ml-6 flex-1">
+                    <h5 class="font-headline font-bold text-on-surface text-lg">Web3 开发者沙龙</h5>
+                    <p class="text-xs text-outline font-medium">14:00 - 17:00 | 灵感咖啡厅</p>
+                </div>
+                <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" style="font-size: 16px;">arrow_forward_ios</span>
+            </div>
+            <!-- 活动项 -->
+            <div class="flex items-center p-5 bg-surface-container-low rounded-3xl hover:bg-surface-container transition-colors group cursor-pointer">
+                <div class="w-14 h-14 rounded-2xl bg-white flex flex-col items-center justify-center shadow-sm">
+                    <span class="text-[10px] font-bold text-primary uppercase">Sep</span>
+                    <span class="text-xl font-bold text-on-surface leading-none">02</span>
+                </div>
+                <div class="ml-6 flex-1">
+                    <h5 class="font-headline font-bold text-on-surface text-lg">AI 伦理闭门研讨会</h5>
+                    <p class="text-xs text-outline font-medium">09:30 - 12:00 | 云端会议室</p>
+                </div>
+                <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" style="font-size: 16px;">arrow_forward_ios</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.06)] rounded-t-2xl z-50">
+    <!-- Home Active -->
+    <a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 duration-200" href="home.html">
+        <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">首页</span>
+    </a>
+    <!-- Orders Inactive -->
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="order-list.html">
+        <span class="material-symbols-outlined mb-1">confirmation_number</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">订单</span>
+    </a>
+    <!-- Add Button -->
+    <button class="w-14 h-14 rounded-full primary-gradient text-white flex items-center justify-center shadow-2xl shadow-primary/40 -mt-6 active:scale-95 transition-transform">
+        <span class="material-symbols-outlined" style="font-size: 32px;">add</span>
+    </button>
+    <!-- Activities Inactive -->
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="#">
+        <span class="material-symbols-outlined mb-1">event</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">活动</span>
+    </a>
+    <!-- Profile Inactive -->
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="profile.html">
+        <span class="material-symbols-outlined mb-1">person</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">我的</span>
+    </a>
+</nav>
+</body>
+</html>

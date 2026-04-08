@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 登录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="min-h-screen bg-background antialiased">
+<!-- 背景装饰 -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+
+<!-- 登录卡片 -->
+<div class="relative min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-[420px]">
+        <!-- Logo -->
+        <div class="text-center mb-10">
+            <h1 class="font-headline text-4xl font-bold text-primary tracking-tight mb-2">X-HUB</h1>
+            <p class="text-sm text-outline">智能空间预约平台</p>
+        </div>
+
+        <!-- 登录表单 -->
+        <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_12px_40px_rgba(129,39,207,0.08)]">
+            <h2 class="font-headline text-2xl font-bold text-on-surface mb-2">欢迎回来</h2>
+            <p class="text-sm text-outline mb-8">登录您的账号继续</p>
+
+            <form id="loginForm" class="space-y-5">
+                <!-- 账号输入 -->
+                <div>
+                    <label class="block text-sm font-medium text-on-surface mb-2">账号</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
+                        <input type="text" id="username" placeholder="请输入手机号/邮箱"
+                            class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant/15 rounded-2xl text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"/>
+                    </div>
+                </div>
+
+                <!-- 密码输入 -->
+                <div>
+                    <label class="block text-sm font-medium text-on-surface mb-2">密码</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">lock</span>
+                        <input type="password" id="password" placeholder="请输入密码"
+                            class="w-full pl-12 pr-12 py-4 bg-surface-container-lowest border border-outline-variant/15 rounded-2xl text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"/>
+                        <button type="button" id="togglePassword" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 记住与忘记 -->
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" id="remember" class="w-5 h-5 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-primary/20"/>
+                        <span class="text-sm text-on-surface">记住我</span>
+                    </label>
+                    <a href="#" class="text-sm text-primary font-medium hover:underline">忘记密码？</a>
+                </div>
+
+                <!-- 登录按钮 -->
+                <button type="submit" class="w-full primary-gradient text-white py-4 rounded-2xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all">
+                    登录
+                </button>
+
+                <!-- 注册提示 -->
+                <p class="text-center text-sm text-outline">
+                    还没有账号？<a href="#" class="text-primary font-medium hover:underline">立即注册</a>
+                </p>
+            </form>
+
+            <!-- 分隔线 -->
+            <div class="flex items-center gap-4 my-6">
+                <div class="flex-1 h-px bg-outline-variant/30"></div>
+                <span class="text-xs text-outline uppercase tracking-wider">或</span>
+                <div class="flex-1 h-px bg-outline-variant/30"></div>
+            </div>
+
+            <!-- 协议 -->
+            <div class="flex items-start gap-3">
+                <input type="checkbox" id="agreement" class="w-5 h-5 mt-0.5 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-primary/20"/>
+                <label for="agreement" class="text-xs text-outline leading-relaxed">
+                    我已阅读并同意<a href="#" class="text-primary hover:underline">《用户隐私政策》</a>和<a href="#" class="text-primary hover:underline">《服务使用条款》</a>
+                </label>
+            </div>
+        </div>
+
+        <!-- 底部版权 -->
+        <p class="text-center text-xs text-outline/60 mt-8">© 2026 X-HUB. All rights reserved.</p>
+    </div>
+</div>
+
+<script>
+// 密码显示/隐藏
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const icon = this.querySelector('.material-symbols-outlined');
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.textContent = 'visibility_off';
+    } else {
+        passwordInput.type = 'password';
+        icon.textContent = 'visibility';
+    }
+});
+
+// 登录表单提交
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const agreement = document.getElementById('agreement').checked;
+
+    if (!username || !password) {
+        alert('请输入账号和密码');
+        return;
+    }
+
+    if (!agreement) {
+        alert('请先阅读并同意用户协议');
+        return;
+    }
+
+    // 模拟登录
+    alert('登录成功！即将跳转到首页...');
+    window.location.href = 'home.html';
+});
+</script>
+</body>
+</html>
