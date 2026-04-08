@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-HUB 科技感UI预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-primary: #7C3AED;
+            --purple-light: #A78BFA;
+            --purple-dark: #5B21B6;
+            --purple-glow: rgba(124, 58, 237, 0.3);
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+        }
+
+        /* 科技感背景 */
+        .tech-bg {
+            background: linear-gradient(135deg, var(--purple-dark) 0%, #1F1159 50%, #0D0B1E 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, var(--purple-glow) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* 网格线背景 */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(124, 58, 237, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--purple-light), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            text-shadow: 0 0 20px var(--purple-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 40px var(--purple-glow);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* 玻璃卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .glass-card:hover {
+            border-color: var(--purple-light);
+            box-shadow: 0 0 30px var(--purple-glow);
+            transform: translateY(-5px);
+        }
+
+        /* 手机模拟器 */
+        .phone-mockup {
+            width: 375px;
+            height: 812px;
+            background: var(--gray-900);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow:
+                0 0 0 2px var(--purple-primary),
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 100px var(--purple-glow);
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: var(--gray-900);
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        /* Tab Bar */
+        .tab-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--white);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid var(--gray-200);
+            padding-bottom: 20px;
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray-300);
+            font-size: 0.7rem;
+        }
+
+        .tab-item.active {
+            color: var(--purple-primary);
+        }
+
+        .tab-icon {
+            width: 24px;
+            height: 24px;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E") center/contain no-repeat;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+
+        /* 页面内容 */
+        .page-content {
+            padding: 60px 16px 100px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        /* 首页 */
+        .home-header {
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark));
+            padding: 50px 16px 80px;
+            margin: -12px -12px 0 -12px;
+            border-radius: 32px 32px 0 0;
+        }
+
+        .home-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .home-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        .points-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .points-value {
+            color: #FFD700;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .points-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+        }
+
+        .recharge-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--gray-900);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Banner轮播 */
+        .banner {
+            margin: -50px 16px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-text {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* 分类 */
+        .categories {
+            display: flex;
+            gap: 12px;
+            padding: 20px 16px;
+            overflow-x: auto;
+        }
+
+        .category-item {
+            flex-shrink: 0;
+            width: 70px;
+            text-align: center;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+            border-radius: 16px;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .category-name {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        /* 空间卡片 */
+        .space-section {
+            padding: 0 16px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .section-more {
+            color: var(--purple-primary);
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .space-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 16px;
+        }
+
+        .space-img {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, var(--purple-light), var(--purple-primary));
+            position: relative;
+        }
+
+        .space-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--purple-primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+        }
+
+        .space-info {
+            padding: 12px;
+        }
+
+        .space-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .space-meta {
+            display: flex;
+            gap: 12px;
+            color: var(--gray-600);
+            font-size: 0.75rem;
+            margin-bottom: 12px;
+        }
+
+        .space-price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .price-value {
+            color: var(--purple-primary);
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .price-unit {
+            color: var(--gray-600);
+            font-size: 0.75rem;
+        }
+
+        /* 预览区 */
+        .preview-section {
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-align: center;
+            color: var(--purple-light);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-header-center {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header-center h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header-center p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+        }
+
+        /* 功能卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--purple-light);
+            box-shadow: 0 0 40px var(--purple-glow);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* 颜色选择器 */
+        .color-picker {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.active {
+            border-color: var(--white);
+            box-shadow: 0 0 30px currentColor;
+        }
+
+        /* 状态预览 */
+        .status-preview {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .status-confirmed {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .status-using {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status-completed {
+            background: #E5E7EB;
+            color: #374151;
+        }
+
+        .status-cancelled {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 预览区域 -->
+    <div class="tech-bg">
+        <div class="grid-lines"></div>
+
+        <!-- 导航 -->
+        <nav class="navbar">
+            <div class="nav-logo">X-HUB</div>
+            <div class="nav-links">
+                <a href="#preview">预览</a>
+                <a href="#features">功能</a>
+                <a href="#colors">配色</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>X-HUB 科技感 UI 预览</h1>
+            <p>紫白色调 · 毛玻璃效果 · 现代科技风格</p>
+        </section>
+
+        <!-- 手机预览 -->
+        <section class="preview-section" id="preview">
+            <div class="preview-grid">
+                <div>
+                    <div class="section-label">客户端首页</div>
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-notch"></div>
+                            <div class="page-content">
+                                <div class="home-header">
+                                    <div class="home-title">欢迎回来</div>
+                                    <div class="home-subtitle">发现优质空间</div>
+                                    <div class="points-card">
+                                        <div>
+                                            <div class="points-label">当前积分</div>
+                                            <div class="points-value">2,580</div>
+                                        </div>
+                                        <button class="recharge-btn">立即充值</button>
+                                    </div>
+                                </div>
+
+                                <div class="banner">
+                                    <div class="banner-img">
+                                        <span class="banner-text">限时特惠 · 会议室8折</span>
+                                    </div>
+                                </div>
+
+                                <div class="categories">
+                                    <div class="category-item">
+                                        <div class="category-icon">🏢</div>
+                                        <div class="category-name">会议室</div>
+                                    </div>
+                                    <div class="category-item">
+                                        <div class="category-icon">🎯</div>
+                                        <div class="category-name">工位数</div>
+                                    </div>
+                                    <div class="category-item">
+                                        <div class="category-icon">🎪</div>
+                                        <div class="category-name">活动场地</div>
+                                    </div>
+                                    <div class="category-item">
+                                        <div class="category-icon">☕</div>
+                                        <div class="category-name">休闲区</div>
+                                    </div>
+                                </div>
+
+                                <div class="space-section">
+                                    <div class="section-header">
+                                        <span class="section-title">推荐空间</span>
+                                        <a href="#" class="section-more">查看更多 →</a>
+                                    </div>
+
+                                    <div class="space-card">
+                                        <div class="space-img">
+                                            <span class="space-tag">热门</span>
+                                        </div>
+                                        <div class="space-info">
+                                            <div class="space-name">创客空间 A区</div>
+                                            <div class="space-meta">
+                                                <span>👥 8-20人</span>
+                                                <span>📍 3楼</span>
+                                            </div>
+                                            <div class="space-price">
+                                                <span class="price-value">500</span>
+                                                <span class="price-unit">积分/半天</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-card">
+                                        <div class="space-img" style="background: linear-gradient(135deg, #A78BFA, #7C3AED);">
+                                        </div>
+                                        <div class="space-info">
+                                            <div class="space-name">静谧书房</div>
+                                            <div class="space-meta">
+                                                <span>👥 1-4人</span>
+                                                <span>📍 5楼</span>
+                                            </div>
+                                            <div class="space-price">
+                                                <span class="price-value">200</span>
+                                                <span class="price-unit">积分/半天</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-bar">
+                                <div class="tab-item active">
+                                    <div class="tab-icon"></div>
+                                    <span>首页</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div class="tab-icon"></div>
+                                    <span>订单</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div class="tab-icon"></div>
+                                    <span>我的</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="section-label">订单状态</div>
+                    <div class="status-preview">
+                        <h3 style="color: white; margin-bottom: 1.5rem;">订单状态展示</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="status-badge status-pending">待确认</span>
+                            <span class="status-badge status-confirmed">待使用</span>
+                            <span class="status-badge status-using">使用中</span>
+                            <span class="status-badge status-completed">已完成</span>
+                            <span class="status-badge status-cancelled">已取消</span>
+                        </div>
+                    </div>
+
+                    <div class="status-preview" style="margin-top: 2rem;">
+                        <h3 style="color: white; margin-bottom: 1rem;">预约时段设计</h3>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <div style="background: var(--purple-primary); color: white; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem;">上午 08:00-12:00</div>
+                            <div style="background: #10B981; color: white; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem;">下午 14:00-18:00</div>
+                            <div style="background: var(--gray-200); color: var(--gray-600); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem;">晚间 18:00-22:00</div>
+                        </div>
+                    </div>
+
+                    <div class="status-preview" style="margin-top: 2rem;">
+                        <h3 style="color: white; margin-bottom: 1rem;">积分卡片</h3>
+                        <div style="background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark)); border-radius: 16px; padding: 20px; color: white;">
+                            <div style="opacity: 0.7; font-size: 0.85rem;">当前积分余额</div>
+                            <div style="font-size: 2.5rem; font-weight: bold; margin: 8px 0;">2,580 <span style="font-size: 1rem;">积分</span></div>
+                            <div style="display: flex; gap: 10px; margin-top: 12px;">
+                                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;">+200 充值</div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;">-150 消费</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能卡片 -->
+        <section class="feature-grid" id="features">
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>在线预约</h3>
+                <p>支持多时段预约，灵活选择上午、下午、晚间，实时查看可用状态</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>智能门锁</h3>
+                <p>预约成功后自动生成访客码，一键复制，开门无忧</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>积分体系</h3>
+                <p>充值积分享优惠，消费积分抵费用，账单明细清晰</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>服务评价</h3>
+                <p>服务完成后可进行评价，帮助改进服务质量</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>管家服务</h3>
+                <p>专属管家全程跟进，服务节点记录，透明可追溯</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>数据报表</h3>
+                <p>服务数据可视化，好评率、投诉率一目了然</p>
+            </div>
+        </section>
+
+        <!-- 配色方案 -->
+        <section class="color-picker" id="colors">
+            <div class="section-label">配色方案</div>
+            <h2 style="color: white; margin-bottom: 2rem;">选择你的主题色</h2>
+            <div class="color-options">
+                <div class="color-option active" style="background: #7C3AED;" title="科技紫"></div>
+                <div class="color-option" style="background: #2563EB;" title="商务蓝"></div>
+                <div class="color-option" style="background: #059669;" title="自然绿"></div>
+                <div class="color-option" style="background: #DC2626;" title="热情红"></div>
+                <div class="color-option" style="background: #EA580C;" title="活力橙"></div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.4);">
+            <p>X-HUB 产品原型 · 科技感 UI 预览</p>
+        </footer>
+    </div>
+</body>
+</html>
