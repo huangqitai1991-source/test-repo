@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 空间管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex items-center px-4 gap-4">
+    <button onclick="history.back()" class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <h1 class="flex-1 font-headline text-xl font-bold text-on-surface">空间管理</h1>
+    <button class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">add</span>
+    </button>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- 空间总数 -->
+    <div class="primary-gradient rounded-3xl p-6 mb-6 text-white">
+        <div class="flex items-center justify-between mb-4">
+            <p class="text-sm text-white/80">我的空间</p>
+            <button class="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium hover:bg-white/30 transition-colors">
+                添加空间
+            </button>
+        </div>
+        <p class="font-headline text-4xl font-bold">4个空间</p>
+        <p class="text-sm text-white/80 mt-2">总容量 48人 · 空闲 2个</p>
+    </div>
+
+    <!-- 空间列表 -->
+    <div class="space-y-4">
+        <!-- 创客空间A区 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+            <div class="relative h-40">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=200&fit=crop" alt="创客空间" class="w-full h-full object-cover"/>
+                <div class="absolute top-4 left-4 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">空闲中</div>
+                <div class="absolute top-4 right-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">热门</div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-headline text-lg font-bold text-on-surface">创客空间 A区</h3>
+                        <p class="text-xs text-outline mt-1">浦东新区·张江高科园区</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-sm font-bold text-on-surface">4.9</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">8-20人</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">120㎡</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">500积分/半天</span>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex-1 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">编辑</button>
+                    <button class="flex-1 py-2 primary-gradient rounded-xl text-sm font-semibold text-white">查看详情</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 量子实验室 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+            <div class="relative h-40">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=200&fit=crop" alt="量子实验室" class="w-full h-full object-cover"/>
+                <div class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-xs font-bold rounded-full">使用中</div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-headline text-lg font-bold text-on-surface">量子实验室</h3>
+                        <p class="text-xs text-outline mt-1">浦东新区·张江高科园区</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-sm font-bold text-on-surface">4.8</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">1-8人</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">80㎡</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">1200积分/时</span>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex-1 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">编辑</button>
+                    <button class="flex-1 py-2 primary-gradient rounded-xl text-sm font-semibold text-white">查看详情</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 禅意行政套房 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+            <div class="relative h-40">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=200&fit=crop" alt="禅意行政套房" class="w-full h-full object-cover"/>
+                <div class="absolute top-4 left-4 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">已预约</div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-headline text-lg font-bold text-on-surface">禅意行政套房</h3>
+                        <p class="text-xs text-outline mt-1">徐汇区·衡山路</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-sm font-bold text-on-surface">5.0</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">1-4人</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">60㎡</span>
+                    <span class="px-2 py-1 bg-surface-container-low rounded-lg text-[10px] text-outline">850积分/半天</span>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex-1 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">编辑</button>
+                    <button class="flex-1 py-2 primary-gradient rounded-xl text-sm font-semibold text-white">查看详情</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.06)] rounded-t-2xl z-50">
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="butler-home.html">
+        <span class="material-symbols-outlined mb-1">home</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">首页</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="butler-booking.html">
+        <span class="material-symbols-outlined mb-1">book_online</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">预约</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold" href="butler-space.html">
+        <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">meeting_room</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">空间</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="butler-stats.html">
+        <span class="material-symbols-outlined mb-1">analytics</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">统计</span>
+    </a>
+</nav>
+</body>
+</html>

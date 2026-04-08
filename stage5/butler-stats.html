@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 数据统计</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex items-center px-4 gap-4">
+    <button onclick="history.back()" class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <h1 class="flex-1 font-headline text-xl font-bold text-on-surface">数据统计</h1>
+    <button class="px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">
+        导出报表
+    </button>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- 时间筛选 -->
+    <div class="flex gap-3 mb-6 overflow-x-auto">
+        <button class="px-4 py-2 primary-gradient text-white rounded-full text-sm font-semibold shadow-md shadow-primary/20">本周</button>
+        <button class="px-4 py-2 bg-surface-container-low text-on-surface rounded-full text-sm font-medium hover:bg-surface-container transition-colors">本月</button>
+        <button class="px-4 py-2 bg-surface-container-low text-on-surface rounded-full text-sm font-medium hover:bg-surface-container transition-colors">本季度</button>
+        <button class="px-4 py-2 bg-surface-container-low text-on-surface rounded-full text-sm font-medium hover:bg-surface-container transition-colors">自定义</button>
+    </div>
+
+    <!-- 核心数据 -->
+    <div class="primary-gradient rounded-3xl p-6 mb-6 text-white">
+        <p class="text-sm text-white/80 mb-4">本周数据概览</p>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white/10 rounded-xl p-4">
+                <p class="text-3xl font-bold">86</p>
+                <p class="text-xs text-white/80 mt-1">总预约单</p>
+                <p class="text-xs text-green-300 mt-1">↑ 12%</p>
+            </div>
+            <div class="bg-white/10 rounded-xl p-4">
+                <p class="text-3xl font-bold">¥4,580</p>
+                <p class="text-xs text-white/80 mt-1">总积分收入</p>
+                <p class="text-xs text-green-300 mt-1">↑ 8%</p>
+            </div>
+            <div class="bg-white/10 rounded-xl p-4">
+                <p class="text-3xl font-bold">68h</p>
+                <p class="text-xs text-white/80 mt-1">总使用时长</p>
+                <p class="text-xs text-green-300 mt-1">↑ 15%</p>
+            </div>
+            <div class="bg-white/10 rounded-xl p-4">
+                <p class="text-3xl font-bold">4.8</p>
+                <p class="text-xs text-white/80 mt-1">平均评分</p>
+                <p class="text-xs text-green-300 mt-1">↑ 0.2</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 预约趋势 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h3 class="font-headline font-bold text-on-surface mb-4">预约趋势</h3>
+        <div class="flex items-end justify-between h-40 px-4">
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary/20 rounded-t" style="height: 40px;"></div>
+                <span class="text-xs text-outline">周一</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary/30 rounded-t" style="height: 60px;"></div>
+                <span class="text-xs text-outline">周二</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary/40 rounded-t" style="height: 80px;"></div>
+                <span class="text-xs text-outline">周三</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary/50 rounded-t" style="height: 70px;"></div>
+                <span class="text-xs text-outline">周四</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary/60 rounded-t" style="height: 90px;"></div>
+                <span class="text-xs text-outline">周五</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary/70 rounded-t" style="height: 100px;"></div>
+                <span class="text-xs text-outline">周六</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="w-8 bg-primary rounded-t" style="height: 120px;"></div>
+                <span class="text-xs text-primary font-bold">周日</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 空间利用率 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h3 class="font-headline font-bold text-on-surface mb-4">空间利用率</h3>
+        <div class="space-y-4">
+            <div>
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-on-surface">创客空间 A区</span>
+                    <span class="text-primary font-bold">78%</span>
+                </div>
+                <div class="h-3 bg-surface-container-low rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 78%;"></div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-on-surface">量子实验室</span>
+                    <span class="text-primary font-bold">65%</span>
+                </div>
+                <div class="h-3 bg-surface-container-low rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 65%;"></div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-on-surface">禅意行政套房</span>
+                    <span class="text-primary font-bold">52%</span>
+                </div>
+                <div class="h-3 bg-surface-container-low rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 52%;"></div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-on-surface">灵感咖啡厅</span>
+                    <span class="text-primary font-bold">45%</span>
+                </div>
+                <div class="h-3 bg-surface-container-low rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 45%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评价概览 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h3 class="font-headline font-bold text-on-surface mb-4">评价概览</h3>
+        <div class="flex items-center gap-6 mb-4">
+            <div class="text-center">
+                <p class="font-headline text-4xl font-bold text-primary">4.8</p>
+                <div class="flex gap-0.5 mt-2 justify-center">
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-xs text-outline mt-1">本周新增32条</p>
+            </div>
+            <div class="flex-1 space-y-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-outline w-6">5星</span>
+                    <div class="flex-1 h-2 bg-surface-container-low rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-400 rounded-full" style="width: 75%;"></div>
+                    </div>
+                    <span class="text-xs text-outline w-8">75%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-outline w-6">4星</span>
+                    <div class="flex-1 h-2 bg-surface-container-low rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-400 rounded-full" style="width: 18%;"></div>
+                    </div>
+                    <span class="text-xs text-outline w-8">18%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-outline w-6">3星</span>
+                    <div class="flex-1 h-2 bg-surface-container-low rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-400 rounded-full" style="width: 5%;"></div>
+                    </div>
+                    <span class="text-xs text-outline w-8">5%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-outline w-6">2星</span>
+                    <div class="flex-1 h-2 bg-surface-container-low rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-400 rounded-full" style="width: 2%;"></div>
+                    </div>
+                    <span class="text-xs text-outline w-8">2%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-outline w-6">1星</span>
+                    <div class="flex-1 h-2 bg-surface-container-low rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-400 rounded-full" style="width: 0%;"></div>
+                    </div>
+                    <span class="text-xs text-outline w-8">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.06)] rounded-t-2xl z-50">
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="butler-home.html">
+        <span class="material-symbols-outlined mb-1">home</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">首页</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="butler-booking.html">
+        <span class="material-symbols-outlined mb-1">book_online</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">预约</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="butler-space.html">
+        <span class="material-symbols-outlined mb-1">meeting_room</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">空间</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold" href="butler-stats.html">
+        <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">analytics</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">统计</span>
+    </a>
+</nav>
+</body>
+</html>
