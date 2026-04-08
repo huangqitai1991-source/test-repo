@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 评价</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex items-center px-4 gap-4">
+    <button onclick="history.back()" class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <h1 class="flex-1 font-headline text-xl font-bold text-on-surface">评价</h1>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- 空间信息 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <div class="flex gap-4">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=80&h=80&fit=crop" alt="创客空间" class="w-20 h-20 rounded-xl object-cover"/>
+            <div class="flex-1">
+                <h3 class="font-headline text-lg font-bold text-on-surface">创客空间 A区</h3>
+                <p class="text-xs text-outline mt-1">浦东新区·张江高科园区</p>
+                <p class="text-xs text-outline mt-1">04月05日 下午 13:00-17:00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评分 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h4 class="font-headline font-bold text-on-surface mb-4">总体评分</h4>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="text-center">
+                <p class="font-headline text-5xl font-bold text-primary">4.9</p>
+                <p class="text-xs text-outline mt-1">综合评分</p>
+            </div>
+            <div class="flex-1 flex items-center justify-center gap-1">
+                <button class="star-btn text-3xl text-yellow-400 hover:scale-110 transition-transform" data-rating="1">★</button>
+                <button class="star-btn text-3xl text-yellow-400 hover:scale-110 transition-transform" data-rating="2">★</button>
+                <button class="star-btn text-3xl text-yellow-400 hover:scale-110 transition-transform" data-rating="3">★</button>
+                <button class="star-btn text-3xl text-yellow-400 hover:scale-110 transition-transform" data-rating="4">★</button>
+                <button class="star-btn text-3xl text-yellow-400 hover:scale-110 transition-transform" data-rating="5">★</button>
+            </div>
+        </div>
+
+        <!-- 分项评分 -->
+        <div class="grid grid-cols-3 gap-4">
+            <div class="text-center">
+                <p class="text-sm font-medium text-on-surface">环境</p>
+                <div class="flex justify-center gap-0.5 mt-2">
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-sm font-medium text-on-surface">设施</p>
+                <div class="flex justify-center gap-0.5 mt-2">
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-sm font-medium text-on-surface">服务</p>
+                <div class="flex justify-center gap-0.5 mt-2">
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-yellow-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-outline text-sm">star</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 标签选择 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h4 class="font-headline font-bold text-on-surface mb-4">选择标签</h4>
+        <div class="flex flex-wrap gap-2">
+            <button class="tag-btn px-4 py-2 bg-primary/10 rounded-xl text-sm font-medium text-primary border-2 border-primary">干净整洁</button>
+            <button class="tag-btn px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface border-2 border-transparent hover:border-primary/20">设施齐全</button>
+            <button class="tag-btn px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface border-2 border-transparent hover:border-primary/20">交通便利</button>
+            <button class="tag-btn px-4 py-2 bg-primary/10 rounded-xl text-sm font-medium text-primary border-2 border-primary">采光充足</button>
+            <button class="tag-btn px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface border-2 border-transparent hover:border-primary/20">安静舒适</button>
+            <button class="tag-btn px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface border-2 border-transparent hover:border-primary/20">服务热情</button>
+            <button class="tag-btn px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface border-2 border-transparent hover:border-primary/20">性价比高</button>
+        </div>
+    </div>
+
+    <!-- 评价内容 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h4 class="font-headline font-bold text-on-surface mb-4">评价内容</h4>
+        <textarea id="reviewContent" placeholder="分享您的使用体验..." rows="5" class="w-full p-4 bg-surface-container-low rounded-2xl border border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 text-sm text-on-surface placeholder:text-outline resize-none transition-all"></textarea>
+        <div class="flex items-center justify-between mt-3">
+            <span class="text-xs text-outline">最少输入10个字</span>
+            <span id="charCount" class="text-xs text-outline">0/200</span>
+        </div>
+    </div>
+
+    <!-- 上传图片 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <h4 class="font-headline font-bold text-on-surface mb-4">上传图片（选填）</h4>
+        <div class="flex gap-3 overflow-x-auto pb-2">
+            <div class="flex-shrink-0 w-24 h-24 rounded-xl bg-surface-container-low flex items-center justify-center cursor-pointer hover:bg-surface-container transition-colors">
+                <span class="material-symbols-outlined text-outline text-3xl">add_photo_alternate</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 匿名评价 -->
+    <div class="bg-surface-container-lowest rounded-3xl p-5 mb-6 shadow-[0_4px_20px_rgba(129,39,207,0.06)]">
+        <label class="flex items-center gap-3 cursor-pointer">
+            <input type="checkbox" id="anonymous" class="w-5 h-5 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-primary/20"/>
+            <div>
+                <p class="text-sm font-medium text-on-surface">匿名评价</p>
+                <p class="text-xs text-outline">匿名后商家无法看到您的昵称</p>
+            </div>
+        </label>
+    </div>
+
+    <!-- 积分提示 -->
+    <div class="bg-primary/5 rounded-2xl p-4 flex items-center gap-3 mb-6">
+        <span class="material-symbols-outlined text-primary">info</span>
+        <p class="text-sm text-on-surface">完成评价可获得 <span class="font-bold text-primary">50</span> 积分奖励</p>
+    </div>
+</main>
+
+<!-- 底部提交栏 -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.08)] p-4 z-50">
+    <button id="submitBtn" onclick="submitReview()" class="w-full primary-gradient text-white py-4 rounded-2xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+        提交评价
+    </button>
+</div>
+
+<script>
+let currentRating = 5;
+let selectedTags = ['干净整洁'];
+
+// Star rating
+document.querySelectorAll('.star-btn').forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        currentRating = index + 1;
+        updateStars();
+    });
+});
+
+function updateStars() {
+    document.querySelectorAll('.star-btn').forEach((btn, index) => {
+        if (index < currentRating) {
+            btn.style.color = '#eab308';
+            btn.style.fontVariationSettings = "'FILL' 1";
+        } else {
+            btn.style.color = '#d1d5db';
+            btn.style.fontVariationSettings = "'FILL' 0";
+        }
+    });
+}
+
+// Tag selection
+document.querySelectorAll('.tag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tag = btn.textContent;
+        if (btn.classList.contains('border-primary')) {
+            btn.classList.remove('bg-primary/10', 'text-primary', 'border-primary');
+            btn.classList.add('bg-surface-container-low', 'text-on-surface', 'border-transparent');
+            selectedTags = selectedTags.filter(t => t !== tag);
+        } else {
+            btn.classList.remove('bg-surface-container-low', 'text-on-surface', 'border-transparent');
+            btn.classList.add('bg-primary/10', 'text-primary', 'border-primary');
+            selectedTags.push(tag);
+        }
+    });
+});
+
+// Character count
+const reviewContent = document.getElementById('reviewContent');
+const charCount = document.getElementById('charCount');
+const submitBtn = document.getElementById('submitBtn');
+
+reviewContent.addEventListener('input', () => {
+    const len = reviewContent.value.length;
+    charCount.textContent = len + '/200';
+    submitBtn.disabled = len < 10;
+});
+
+function submitReview() {
+    alert('评价提交成功！感谢您的反馈');
+    window.location.href = 'order-list.html';
+}
+</script>
+</body>
+</html>

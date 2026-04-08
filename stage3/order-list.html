@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-HUB | 我的订单</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#8127cf",
+                "primary-container": "#9c48ea",
+                "on-primary": "#ffffff",
+                background: "#f8f9fb",
+                surface: "#f8f9fb",
+                "surface-container-low": "#f3f4f6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191c1e",
+                outline: "#7e7385",
+                "outline-variant": "#cfc2d6",
+                secondary: "#734d97",
+                "secondary-container": "#d7adff",
+            },
+            fontFamily: {
+                headline: ["Space Grotesk"],
+                body: ["Inter"],
+            }
+        }
+    }
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+.font-headline { font-family: 'Space Grotesk', sans-serif; }
+.glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.primary-gradient { background: linear-gradient(135deg, #8127cf 0%, #9c48ea 100%); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-[0_12px_40px_rgba(129,39,207,0.06)] h-16 flex items-center px-4 gap-4">
+    <button onclick="history.back()" class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <h1 class="flex-1 font-headline text-xl font-bold text-on-surface">我的订单</h1>
+</header>
+
+<main class="pt-20 pb-24 px-4 max-w-screen-xl mx-auto">
+    <!-- 状态Tab -->
+    <div class="flex gap-3 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+        <button class="px-5 py-2.5 rounded-full primary-gradient text-white text-sm font-semibold whitespace-nowrap shadow-md shadow-primary/20">全部</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">待使用</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">已完成</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">已取消</button>
+    </div>
+
+    <!-- 订单列表 -->
+    <div class="space-y-4">
+        <!-- 订单卡片1 - 待使用 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)]" onclick="window.location.href='order-detail.html'">
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <p class="text-xs text-outline">订单编号：BK20260408001</p>
+                        <h3 class="font-headline text-lg font-bold text-on-surface mt-1">创客空间 A区</h3>
+                    </div>
+                    <span class="px-3 py-1 bg-primary/10 rounded-full text-xs font-bold text-primary">待使用</span>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-outline mb-4">
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span>
+                        今天 04-08
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        上午 08:00-12:00
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">groups</span>
+                        8人
+                    </span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-primary">500</span>
+                        <span class="text-sm text-outline ml-1">积分</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">取消</button>
+                        <button class="px-4 py-2 primary-gradient rounded-xl text-sm font-semibold text-white shadow-md shadow-primary/20">查看二维码</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单卡片2 - 待评价 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)]" onclick="window.location.href='order-detail.html'">
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <p class="text-xs text-outline">订单编号：BK20260405002</p>
+                        <h3 class="font-headline text-lg font-bold text-on-surface mt-1">量子实验室</h3>
+                    </div>
+                    <span class="px-3 py-1 bg-yellow-100 rounded-full text-xs font-bold text-yellow-700">待评价</span>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-outline mb-4">
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span>
+                        04-05
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        下午 13:00-17:00
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">groups</span>
+                        4人
+                    </span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-primary">480</span>
+                        <span class="text-sm text-outline ml-1">积分</span>
+                    </div>
+                    <button class="px-4 py-2 primary-gradient rounded-xl text-sm font-semibold text-white shadow-md shadow-primary/20">立即评价</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单卡片3 - 已完成 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)]" onclick="window.location.href='order-detail.html'">
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <p class="text-xs text-outline">订单编号：BK20260328003</p>
+                        <h3 class="font-headline text-lg font-bold text-on-surface mt-1">禅意行政套房</h3>
+                    </div>
+                    <span class="px-3 py-1 bg-green-100 rounded-full text-xs font-bold text-green-700">已完成</span>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-outline mb-4">
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span>
+                        03-28
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        全天
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">groups</span>
+                        2人
+                    </span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-primary">1,600</span>
+                        <span class="text-sm text-outline ml-1">积分</span>
+                    </div>
+                    <button class="px-4 py-2 bg-surface-container-low rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">再次预约</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单卡片4 - 已取消 -->
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(129,39,207,0.06)] opacity-70">
+            <div class="p-5">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <p class="text-xs text-outline">订单编号：BK20260325004</p>
+                        <h3 class="font-headline text-lg font-bold text-on-surface mt-1">灵感咖啡厅</h3>
+                    </div>
+                    <span class="px-3 py-1 bg-surface-container-low rounded-full text-xs font-bold text-outline">已取消</span>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-outline mb-4">
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span>
+                        03-25
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        晚上 18:00-22:00
+                    </span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                    <div>
+                        <span class="font-headline text-xl font-bold text-outline">300</span>
+                        <span class="text-sm text-outline ml-1">积分（已退回）</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 bg-white/70 backdrop-blur-md shadow-[0_-12px_40px_rgba(129,39,207,0.06)] rounded-t-2xl z-50">
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="home.html">
+        <span class="material-symbols-outlined mb-1">home</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">首页</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold" href="order-list.html">
+        <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">订单</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary transition-colors" href="profile.html">
+        <span class="material-symbols-outlined mb-1">person</span>
+        <span class="font-body text-[10px] font-medium tracking-wide">我的</span>
+    </a>
+</nav>
+</body>
+</html>
